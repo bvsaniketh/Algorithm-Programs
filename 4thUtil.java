@@ -132,21 +132,23 @@ class Util1
 	// 	System.out.println(itr.next());
 	// }
 
-	// Double arr2[]=new Double[timings.size()];
-	// for(int i1=0;i1<arr2.length;i1++)
-	// {
-	// 	arr2[i1]=timings.get(i1);
-	// }
-	// Arrays.sort(arr2);
-	// for(int k=0;k<arr2.length;k++)
-	// {
-	// 	System.out.println("By Sorting " + arr2[k]);
-	// }
+	
 
 	for(Map.Entry m:hm.entrySet())
 	{
 		System.out.println("Key"+ m.getKey() + " " + " Value"+ " "+ m.getValue());
 	}	
+
+	Double arr2[]=new Double[timings.size()];
+	for(int i1=0;i1<arr2.length;i1++)
+	{
+		arr2[i1]=timings.get(i1);
+	}
+	Arrays.sort(arr2);
+	for(int k=0;k<arr2.length;k++)
+	{
+		System.out.println("After Sorting the values are:  " + arr2[k]);
+	}
 	
 }
 }
