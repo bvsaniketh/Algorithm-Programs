@@ -65,7 +65,7 @@ class File1
 
 	str=Utility.bubblesearch(str,n);
 
-	int flag1=Utility.bsearch(str,key);
+	int flag1=Utility.bsearch(str,0,n,key);
 	if(flag1==1)
 		System.out.println("YES FOUND");
 	else

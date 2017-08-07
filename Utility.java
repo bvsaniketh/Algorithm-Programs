@@ -11,21 +11,21 @@ public final class Utility
 
 
 
-public static void bini(int arr[],int l,int m,int h,int n)
+public static int bini(int arr[],int n)   
 	{
 		Scanner sc = new Scanner(System.in);
 		Arrays.sort(arr);
 		int flag=0;
 
-		l=0;
-		h=n-1;
-		m=(l+h)/2;
+		int l=0;
+		int h=n-1;
+		int m=(l+h)/2;
 		System.out.println("Enter the value of the key to search for");
 		int key =sc.nextInt();
 		
 		
 			
-		while(l<h)
+		while(l<=h)
 			{
 			if(arr[m]<key)
 			{
@@ -43,74 +43,49 @@ public static void bini(int arr[],int l,int m,int h,int n)
 			m=(l+h)/2;
 			}
 			if(flag==1)
-		System.out.println("Key found at " + m);
-		else
-		System.out.println("Key not found at all ");
-
-		}
-
-
-public static int bsearch(String str[],String key)
-	{
-		// Scanner sc=new Scanner(System.in);
-		// System.out.println("Enter the number of Strings");
-		// int n=sc.nextInt();
-		int n=0;
-		String arr[]=new String[n];
-		for(int i=0;i<n;i++)
 		{
-			arr[i]=str[i];
-		}
-		// for(int i=0;i<n;i++)
-		// {
-		// 	arr[i]=sc.next();
-		// }
-
-		System.out.println("Enter the key to search");
-		// String key1=sc.next();
-		int l=0,m,h=n-1;
-		int flag=0;
-		m=(l+h)/2;
-		for(int i=0;i<n;i++)
-		{
-		while(l<=h)
-		{
-		
-		if(key.compareTo(arr[m])>0 )
-		{
-			l=m+1;
-
-
-		}
-		else if(arr[m].equals(key))
-		{
-
-		//System.out.println("Key found at positon" + m);
-			flag=1;
-
-			break;
-		}
-		else if(key.compareTo(arr[m])<0)
-		{
-			h=m-1;
-		}
-		m=(l+h)/2;
-		}
-		
-		}
-		if(flag==1)
-		{
-			System.out.println("Key found at positon" + m);
-		 	return 1;
-		 	break;
+			System.out.println("Key found at " + m);
+			return 1;
 		}
 		else
-		{
-			System.out.println("Key not found at any positon");
+		{	System.out.println("Key not found at all ");
 			return -1;
 		}
-	}
 
+		}
+
+
+ public static int bsearch(String []str,int l,int n,String key1)
+  {
+    //System.out.println(l+""+r);
+    //Scanner sc = new Scanner(System.in);
+  
+    
+    int h=n-1;
+
+    if(l <= h)
+    {
+      int mid = (l + h)/2;
+
+      if( str[mid].equalsIgnoreCase(key1) )
+      {
+      	System.out.println("Found at position " +mid);
+        return 1;
+      }
+      else if( str[mid].compareTo(key1) > 0)
+
+      {
+        return bsearch(str,l,mid-1,key1);
+      }
+      else if( str[mid].compareTo(key1) < 0)
+      {
+        return bsearch(str,mid+1,h,key1);
+      }
+    }
+    System.out.println("Not found");
+    return -1;
+
+	}
 
 
 public static void InsertI(int arr[],int n)
@@ -133,32 +108,32 @@ public static void InsertI(int arr[],int n)
 		}
 	}
 
-public static void insertstring()
+public static void insertstring(String str[],int n)
 	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("ENter the total number of Strings");
-		int n = sc.nextInt();
-		String arr[]=new String[n];
+		// Scanner sc=new Scanner(System.in);
+		// System.out.println("ENter the total number of Strings");
+		// int n = sc.nextInt();
+		// String arr[]=new String[n];
 		String key;
 		int i,j;
-		for(i=0;i<n;i++)
-		{
-			arr[i]=sc.next();
-		}
+		// for(i=0;i<n;i++)
+		// {
+		// 	str[i]=sc.next();
+		// }
 		for( i=1;i<n;i++)
 		{
-			key=arr[i];
+			key=str[i];
 			j=i-1;
-			while(j>=0 && arr[j].compareTo(key)>0)
+			while(j>=0 && str[j].compareTo(key)>0)
 			{
-				arr[j+1]=arr[j];
+				str[j+1]=str[j];
 				j--;
 			}
-			arr[j+1]=key;
+			str[j+1]=key;
 		}
 		for( i=0;i<n;i++)
 		{
-			System.out.println("The sorted strings are : " + arr[i]);
+			System.out.println("The sorted strings are : " + str[i]);
 		}
 	}
 
@@ -208,7 +183,7 @@ public static String[] bubblesearch(String str[],int n)
 			}
 		}
 		for(int i=0;i<n;i++)
-		System.out.println(str[i]);
+		System.out.println("The sorted strings are now" + " " +str[i]);
 		return str;
 
 	}

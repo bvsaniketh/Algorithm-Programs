@@ -30,7 +30,7 @@ class BinI
 		
 		
 			
-		while(l<h)
+		while(l<=h)
 			{
 			if(arr[m]<key)
 			{
